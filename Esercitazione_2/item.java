@@ -1,27 +1,39 @@
-abstract class item{
-    Attribute attribute;
-    object value;
+abstract class Item {
+    Attribute attribute; // attributo coinvolto nell'item
+    Object value; // valore assegnato all'attributo
 
-
-    item(Attribute attribute, object value){
+    Item(Attribute attribute, Object value) {
         this.attribute = attribute;
         this.value = value;
-}
+    }
 
-Attribute getAttribute(){
-    return attribute;
-}
-Object getValue() {
-    return value;
-}
-public String toString(){
-    return this.value.TosString();
-}
+    /**
+     * COMPORTAMENTO: inizializza i valori dei membri attributi;
+     * 
+     * @return attribute
+     */
+    Attribute getAttribute() {
+        return attribute;
+    }
 
-abstract double distance(Object a);
+    /**
+     * COMPORTAMENTO: restituisce value;
+     * 
+     * @return value
+     * 
+     */
+    Object getValue() {
+        return value;
+    }
 
-void update(Data data,ArraySet clusteredData){
-    this.value=data.computerPrototype(clusteredData,attribute);
-}
+    public String toString() {
+        return this.value.toString();
+    }
+
+    abstract double distance(Object a);
+
+    void update(Data data, ArraySet clusteredData) {
+        this.value = data.computerPrototype(clusteredData, attribute);
+    }
 
 }
