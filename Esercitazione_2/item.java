@@ -32,8 +32,10 @@ abstract class Item {
 
     abstract double distance(Object a);
 
-    void update(Data data, ArraySet clusteredData) {
-        this.value = data.computerPrototype(clusteredData, attribute);
-    }
+    /*
+     * void update(Data data, ArraySet clusteredData) {
+     * this.value = data.computerPrototype(clusteredData, attribute);
+     * }
+     */
 
 }
