@@ -14,4 +14,12 @@ public class DiscreteAttribute extends Attribute{
     protected String getValue(int i){
         return values[i];
     }
+
+    private int frequency(Data data, ArraySet idList, String v){
+       int a = 0;
+        for(a = 0; a < data.numberOfExamples; a++){
+            idList.toArray();
+        }
+        return a;
+    } 
 }
