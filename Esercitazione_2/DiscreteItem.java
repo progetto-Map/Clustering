@@ -8,7 +8,8 @@ public class DiscreteItem extends Item {
     /**
      * COMPORTAMENTO: Restituisce 0 se (getValue().equals(a)), 1 altrimenti
      * 
-     * 
+     * @param a
+     * @return 1 o 0
      */
     double distance(Object a) {
         if (getValue().equals(a)) {
@@ -17,5 +18,4 @@ public class DiscreteItem extends Item {
             return 1;
         }
     }
-    
 }
