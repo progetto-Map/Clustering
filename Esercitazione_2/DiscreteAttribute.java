@@ -16,10 +16,13 @@ public class DiscreteAttribute extends Attribute{
     }
 
     private int frequency(Data data, ArraySet idList, String v){
-       int a = 0;
-        for(a = 0; a < data.numberOfExamples; a++){
-            idList.toArray();
+        int vet[] = idList.toArray();
+        int count = 0;
+        for(int i=0; i < idList.size;i++){
+            if((boolean)data.getAttributeValue(vet[i].getIndex()).equals(v)){
+                count++;
+            }
         }
-        return a;
+        return count;
     } 
 }

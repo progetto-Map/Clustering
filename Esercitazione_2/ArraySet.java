@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class ArraySet {
 	private boolean set[];
-	private int size=0;
+	protected int size=0;
 	ArraySet (){
 		set=new boolean[50];
 		for(int i=0;i<set.length;i++)
