@@ -19,6 +19,12 @@ public class Tuple {
     }
 
     private double getDistance(Tuple obj) {
+        try {
+            Tuple this;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+        
 
     }
 
