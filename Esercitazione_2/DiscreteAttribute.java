@@ -25,10 +25,13 @@ public class DiscreteAttribute extends Attribute {
         }
         return count;
     }
-
+    /*
     public static void main(String[] args) {
         Data prova = new Data();
         ArraySet pino = new ArraySet();
-        // frequency(prova,pino,"sunny");
+        DiscreteAttribute pippo = new DiscreteAttribute("Wind",3,"High");
+        frequency(prova,pino,"sunny");
+       
     }
+    */
 }

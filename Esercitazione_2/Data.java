@@ -242,7 +242,9 @@ class Data {
             return s;
         }
 
-        
+        protected Object computePrototype(ArraySet idList, Attribute attribute){
+            return computePrototype(idList,(DiscreteAttribute)attribute);
+        }
     
     
         
