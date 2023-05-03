@@ -293,6 +293,8 @@ class Data {
         return computePrototype(idList, (DiscreteAttribute) attribute);
     }
 
+    private Tuple getItemSet(int index)
+
     public static void main(String args[]) {
         Data trainingSet = new Data();
         System.out.println(trainingSet.toString());
