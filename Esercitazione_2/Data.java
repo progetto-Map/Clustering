@@ -281,14 +281,46 @@ class Data {
     }
 
     /**
-     * COMPORTAMENTO: Crea e restituisce un oggetto di Tuple che modella come sequenza di coppie Attributo-valore la i-esima riga in data.
+     * COMPORTAMENTO: Crea e restituisce un oggetto di Tuple che modella come
+     * sequenza di coppie Attributo-valore la i-esima riga in data.
+     * 
      * @param index indice di riga
      * @return tuple;
      */
     protected Tuple getItemSet(int index) {
         Tuple tuple = new Tuple(explanatorySet.length);
         for (int i = 0; i < explanatorySet.length; i++) {
-            tuple.add(new DiscreteItem(explanatorySet[i]), (String) data[index] [i]), i);
+            tuple.add(new DiscreteItem(attributeSet[i]), ((String) data[index][i]), i);
+        }
+    }
+
+
+    /**
+     * COMPORTAMENTO: 
+     * @param k array di interi rappresentanti gli indici di riga in data per le tuple inizialmente scelte come centroidi (passo 1 del k-means)
+     * @return centroidIndexes
+     */
+    protected int[] sampling(int k) {
+        int centroidIndexes[] = new int[k];
+        //choose k random different centroids in data.
+        Random rand = new Random();
+        rand.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < k; i++) {
+            boolean found = false;
+            int c;
+            do{
+                found = false;
+                c = rand.nextInt (getNumberOfExamples());
+                //verify that centroid[c] is not equal to a centroide already stored in CentroidIndexes
+                for (int j=0; j<i; j++){
+                    if (compare(centroidIndexes[j], c)){
+                        found = true;
+                        break;
+                    }
+                //la prof non ha chiuso il for, non so se bisogna chiuderlo qui
+                
+
+            }
         }
     }
 
