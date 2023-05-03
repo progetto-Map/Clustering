@@ -285,10 +285,11 @@ class Data {
      * @param index indice di riga
      * @return tuple;
      */
-    protected Tuple getItemSet(int index) {
-        Tuple tuple = new Tuple(explanatorySet.length);
-        for (int i = 0; i < explanatorySet.length; i++) {
-            tuple.add(new DiscreteItem(explanatorySet[i]), (String) data[index] [i]), i);
+    protected Tuple getItemSet(int index){
+        Tuple tuple = new Tuple(attributeSet.length);
+        for (int i = 0; i < attributeSet.length; i++){
+            tuple.add(new DiscreteItem(attributeSet[i], (String) data[index][i]),i);
+            return tuple;
         }
     }
 
