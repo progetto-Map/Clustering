@@ -58,6 +58,7 @@ public class DiscreteAttribute extends Attribute {
         }
         return count;
     }
+
     /*
      * public static void main(String[] args) {
      * Data prova = new Data();

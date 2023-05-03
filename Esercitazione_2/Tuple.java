@@ -2,7 +2,7 @@
 public class Tuple {
     private Item[] tuple;
 
-    private Tuple(int size) {
+    public Tuple(int size) {
         Item[] tuple = new Item[size];
     }
 
@@ -14,7 +14,7 @@ public class Tuple {
         return tuple[i];
     }
 
-    private void add(Item c, int i) {
+    public void add(Item c, int i) {
         tuple[i] = c;
     }
 
