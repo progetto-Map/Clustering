@@ -281,6 +281,18 @@ class Data {
     }
 
     /**
+     * COMPORTAMENTO: Crea e restituisce un oggetto di Tuple che modella come sequenza di coppie Attributo-valore la i-esima riga in data.
+     * @param index indice di riga
+     * @return tuple;
+     */
+    protected Tuple getItemSet(int index) {
+        Tuple tuple = new Tuple(explanatorySet.length);
+        for (int i = 0; i < explanatorySet.length; i++) {
+            tuple.add(new DiscreteItem(explanatorySet[i]), (String) data[index] [i]), i);
+        }
+    }
+
+    /**
      * COMPORTAMENTO: restituisce computePrototype(idList,
      * (DiscreteAttribute)attribute)
      * 
