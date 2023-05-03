@@ -32,4 +32,24 @@ public class Tuple {
 
     }
 
+    /**
+     * COMPORTAMENTO: Restituisce la media delle distanze tra la tupla corrente e
+     * quelle ottenibili dalle righe della matrice in data aventi indice in
+     * clusteredData.
+     * 
+     * @param data
+     * @param clusterData
+     * @return p Sarebbe la media delle distanze tra la tupla corrente e quelle
+     *         ottenibili
+     */
+    double avgDistance(Data data, int clusterData[]) {
+        double p = 0.0, sumD = 0.0;
+        for (int i = 0; i < clusterData.lenght; i++) {
+            double d = getDistance(data.getItemSet(clusterData[i]));
+            sumD += d;
+        }
+        p = sumD / clusterData.lengh;
+        return p;
+    }
+
 }
