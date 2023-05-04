@@ -291,8 +291,35 @@ class Data {
         Tuple tuple = new Tuple(attributeSet.length);
         for (int i = 0; i < attributeSet.length; i++){
             tuple.add(new DiscreteItem(attributeSet[i], (String) data[index][i]),i);
+            
         }
         return tuple;
+    }
+
+    int [] sampling(int k) {
+        int centroidIndexes[] =new int[k];
+        //choose k random different centroids in data.
+        Random rand=new Random();
+        rand.setSeed(System.currentTimeMillis());
+        for (int i=0; i<k;i++){
+            boolean found = false;
+            int c;
+            do
+            {
+                found=false;
+                c=rand.nextInte(getNumberOfExamples());
+                /*verify that centroid[c] is not equal to a centroide already
+                stored in CentroidIndexes */
+                for (int j=0; j<i;j++)
+                    if(compare(centroidIndexes[j],c)){
+                        found = true;
+                        break;
+                    }
+            }
+            while(found);
+            centroidIndexes[i]=c;
+        }
+        return centroidIndexes;
     }
 
     /**
