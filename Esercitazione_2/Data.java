@@ -281,7 +281,9 @@ class Data {
     }
 
     /**
-     * COMPORTAMENTO: Crea e restituisce un oggetto di Tuple che modella come sequenza di coppie Attributo-valore la i-esima riga in data.
+     * COMPORTAMENTO: Crea e restituisce un oggetto di Tuple che modella come
+     * sequenza di coppie Attributo-valore la i-esima riga in data.
+     * 
      * @param index indice di riga
      * @return tuple;
      */
