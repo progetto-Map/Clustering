@@ -322,6 +322,16 @@ class Data {
         return centroidIndexes;
     }
 
+    private boolean compare(int a, int b){
+        boolean result = true;
+        for (int i=0; i<getNumberOfAttributes();i++){
+            if (!data[a][i].equals(data[b][i])){
+                result = false;
+            }
+        }
+        return result;
+    }
+
     /**
      * COMPORTAMENTO: restituisce computePrototype(idList,
      * (DiscreteAttribute)attribute)
