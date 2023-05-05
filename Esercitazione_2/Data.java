@@ -324,8 +324,14 @@ class Data {
         return centroidIndexes;
     }
 
-    private boolean compare(int i, int j){
-        
+    private boolean compare(int a, int b){
+        boolean result = true;
+        for (int i=0; i<getNumberOfAttributes();i++){
+            if (!data[a][i].equals(data[b][i])){
+                result = false;
+            }
+        }
+        return result;
     }
 
     private Object computePrototype(ArraySet idList, Attribute attribute){
