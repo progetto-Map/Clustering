@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Data {
     // Le visibilità di classi , attributi e metodi devono essere decise dagli
     // studenti
@@ -307,7 +309,7 @@ class Data {
             do
             {
                 found=false;
-                c=rand.nextInte(getNumberOfExamples());
+                c=rand.nextInt(getNumberOfExamples());
                 /*verify that centroid[c] is not equal to a centroide already
                 stored in CentroidIndexes */
                 for (int j=0; j<i;j++)
@@ -322,6 +324,14 @@ class Data {
         return centroidIndexes;
     }
 
+    private boolean compare(int i, int j){
+        
+    }
+
+    private Object computePrototype(ArraySet idList, Attribute attribute){
+        return (Object) computePrototype(idList, attribute);
+    }
+
     /**
      * COMPORTAMENTO: restituisce computePrototype(idList,
      * (DiscreteAttribute)attribute)
@@ -331,8 +341,8 @@ class Data {
      *                  (centroide)
      * @return valore centroide rispetto ad attribute
      */
-    protected Object computePrototype(ArraySet idList, Attribute attribute) {
-        return computePrototype(idList, (DiscreteAttribute) attribute);
+    protected String computePrototype(ArraySet idList, Attribute attribute) {
+        return computePrototype(DiscreteAttribute.frequency(idList, attribute,DiscreteAttribute.getValue(getAttributeValue(getNumberOfExamples(),getNumberOfAttributes())));
     }
 
     public static void main(String args[]) {

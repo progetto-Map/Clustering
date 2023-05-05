@@ -25,7 +25,7 @@ public class DiscreteItem extends Item {
         }
     }
 
-    #make a method that returns the frequency of a value in a column
+
     /**
      * COMPORTAMENTO: Determina il numero di volte che il valore v compare in
      * corrispondenza dell'attributo corrente (indice di colonna) negli esempi
