@@ -324,18 +324,25 @@ class Data {
         return centroidIndexes;
     }
 
-    private boolean compare(int a, int b){
+    private boolean compare(int i, int j){
         boolean result = true;
-        for (int i=0; i<getNumberOfAttributes();i++){
-            if (!data[a][i].equals(data[b][i])){
+        for (int k=0; i<getNumberOfAttributes();k++){
+            if (!data[i][k].equals(data[j][k])){
                 result = false;
             }
         }
         return result;
     }
 
-    private Object computePrototype(ArraySet idList, Attribute attribute){
-        return (Object) computePrototype(idList, attribute);
+    Object computePrototype(ArraySet idList, Attribute attribute){
+        return computePrototype(idList,(DiscreteAttribute)attribute);
+    }
+
+    String computePrototype(ArraySet idList, DiscreteAttribute attribute){
+        
+    }
+
+
     }
 
     /**
