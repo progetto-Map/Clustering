@@ -1,4 +1,4 @@
-private class ClusterSet {
+protected class ClusterSet {
     Cluster C[];
     int i = 0; // posizione valida per la memorizzazione di un nuovo cluster in C
 
@@ -16,7 +16,7 @@ private class ClusterSet {
      * 
      * @param c
      */
-    private void add(Cluster c) {
+    public void add(Cluster c) {
         C[i] = c;
         i++; 
     }
@@ -25,7 +25,7 @@ private class ClusterSet {
         return C[i];
     }
 
-    private void initializeCentroids(Data data){
+    public void initializeCentroids(Data data){
         int centroidIndexes[]=data.sampling(C.length);
         for (int i=0;i<centroidIndexes.length;i++)
         {
@@ -34,11 +34,11 @@ private class ClusterSet {
         }
     }
 
-    private Cluster nearesCluster(Tuple tuple){
-
+    public Cluster nearestCluster(Tuple tuple){
+        
     }
 
-    private Cluster currentCluster(int id){
+    public Cluster currentCluster(int id){
         for (int i=0;i<C.length;i++){
             if (C[i].contain(id))
             return C[i];
@@ -46,8 +46,8 @@ private class ClusterSet {
         return null;
     }
 
-    private void updateCentroids(Data data){
-        for(int i=0;i<C.lenght;i++){
+    public void updateCentroids(Data data){
+        for(int i=0;i<C.length;i++){
             C[i].computeCentroid(data);
         }
     }
@@ -58,7 +58,7 @@ private class ClusterSet {
 
     public String toString(Data data){
         String str="";
-        for(int i=0;i<C.lenght;i++){
+        for(int i=0;i<C.length;i++){
             if (C[i]!=null){
                 str+=i+":"+C[i].toString(data)+"\n";
             }
@@ -66,5 +66,4 @@ private class ClusterSet {
         return str;
     }
 
-    // DA FINIRE TUTTO PERCHè ERA SOLO UN ABBOZZO
 }
