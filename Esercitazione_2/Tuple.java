@@ -6,7 +6,7 @@ public class Tuple {
         Item[] tuple = new Item[size];
     }
 
-    private int getLength() {
+    protected int getLength() {
         return tuple.length;
     }
 
@@ -21,10 +21,9 @@ public class Tuple {
     private double getDistance(Tuple obj) {
         try {
             double distance = 0;
-            for (int i = 0; i < tuple.length; i++){
-                distance += tuple.distance[i](obj.get[i].getValue());
-            }
-
+            for (int i = 0; i < tuple.length; i++)
+                distance += tuple[i].distance(obj.get(i).getValue());    
+            return distance;
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }

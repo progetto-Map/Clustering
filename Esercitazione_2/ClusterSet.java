@@ -1,6 +1,8 @@
+import javax.naming.spi.DirStateFactory;
+
 protected class ClusterSet {
     Cluster C[];
-    int i = 0; // posizione valida per la memorizzazione di un nuovo cluster in C
+    private int i = 0; // posizione valida per la memorizzazione di un nuovo cluster in C
 
     /**
      * COMPORTAMENTO: creo l'oggetto array riferito da C
@@ -8,7 +10,7 @@ protected class ClusterSet {
      * @param k Numero di cluster da generare(k-means)
      */
     ClusterSet(int k) {
-        
+        C = new Cluster[k];
     }
 
     /**
@@ -34,8 +36,16 @@ protected class ClusterSet {
         }
     }
 
-    public Cluster nearestCluster(Tuple tuple){
+    private double[] getCentroid(Cluster C){
         
+    }
+
+    public Cluster nearestCluster(Tuple tuple){
+        double distance = getDistance(tuple);
+        for(int i = 0; i < ; i++){
+
+        }
+  
     }
 
     public Cluster currentCluster(int id){
