@@ -11,15 +11,16 @@ public class KMeansMiner {
     }
 
     private int kmeans(Data data){
-        int numberOfInteraction = 0;
+        int numberOfInterations = 0;
         C.initializeCentroids(data);
         boolean changedCluster = false;
         do{
-            numberOfInteraction++;
+            numberOfInterations++;
             //STEP 2
             changedCluster = false;
             for(int i = 0; i<data.getNumberOfExamples();i++){
-                Cluster nearestCluster = C.nearesCluster(i);
+                Cluster nearestCluster = C.nearestCluster(data.getItemSet(i));
+                Cluster oldCluster = C.currentCluster(i);
                 boolean currentChange = nearestCluster.addData(i);
                 if(currentChange)
                     changedCluster=true;
@@ -32,7 +33,7 @@ public class KMeansMiner {
             C.updateCentroids(data);
         }
         while(changedCluster);
-        return numberOfInteraction;
+        return numberOfInterations;
     }
     
 }
