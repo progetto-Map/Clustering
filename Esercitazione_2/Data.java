@@ -334,7 +334,7 @@ class Data {
         return result;
     }
 
-    Object computePrototype(ArraySet idList, Attribute attribute){
+    protected Object ComputePrototype(ArraySet idList, Attribute attribute){
         return computePrototype(idList,(DiscreteAttribute)attribute);
     }
 
@@ -355,9 +355,9 @@ class Data {
      * @return valore centroide rispetto ad attribute
      */
     protected String computePrototype(ArraySet idList, Attribute attribute) {
-        for(int i = 0; i < data.length; i++){
-            String a = computePrototype(idList, attribute.frequency(getAttributeValue(getNumberOfExamples(), getNumberOfAttributes())));
-
+        int i = 0;
+        for(i = 0; i < data.length; i++){
+            String a = computePrototype(idList, attribute.frequency(this.data,idList,getValue(i)));
             return a;
         }
         }
