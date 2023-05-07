@@ -355,8 +355,12 @@ class Data {
      * @return valore centroide rispetto ad attribute
      */
     protected String computePrototype(ArraySet idList, Attribute attribute) {
-        return computePrototype(DiscreteAttribute.frequency(idList, attribute,DiscreteAttribute.getValue(getAttributeValue(getNumberOfExamples(),getNumberOfAttributes())));
-    }
+        for(int i = 0; i < data.length; i++){
+            String a = computePrototype(idList, attribute.frequency(getAttributeValue(getNumberOfExamples(), getNumberOfAttributes())));
+
+            return a;
+        }
+        }
 
     public static void main(String args[]) {
         Data trainingSet = new Data();

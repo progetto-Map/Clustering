@@ -48,7 +48,7 @@ public class DiscreteAttribute extends Attribute {
      * @param v      Valore discreto
      * @return count Numero di occorrenze del valore discreto (intero)
      */
-    private int frequency(Data data, ArraySet idList, String v) {
+    protected int frequency(Data data, ArraySet idList, String v) {
         int vet[] = idList.toArray();
         int count = 0;
         for (int i = 0; i < vet.length; i++) {
