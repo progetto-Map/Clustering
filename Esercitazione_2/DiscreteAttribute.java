@@ -4,7 +4,7 @@ public class DiscreteAttribute extends Attribute {
                              // lessicografico.
 
     /**
-     * COMPORTAMENTO: inovca il costruttore della classe madre e inizializza il
+     * COMPORTAMENTO: invoca il costruttore della classe madre e inizializza il
      * membro values con il parametro di input
      * 
      * @param name     nome dell'attributo
