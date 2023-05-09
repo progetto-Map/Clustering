@@ -18,7 +18,7 @@ public class Tuple {
         tuple[i] = c;
     }
 
-    private double getDistance(Tuple obj) {
+    public double getDistance(Tuple obj) {
         try {
             double distance = 0;
             for (int i = 0; i < tuple.length; i++){
