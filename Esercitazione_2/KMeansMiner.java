@@ -2,8 +2,7 @@ public class KMeansMiner {
     private ClusterSet C;
 
     private KMeansMiner(int k){
-        super(C);
-
+        C = new ClusterSet(k);
     }
 
     private ClusterSet getC(){

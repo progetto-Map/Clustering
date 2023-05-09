@@ -33,7 +33,7 @@ protected class ClusterSet {
             add(new Cluster(centroidI));
         }
     }
-    //da rivedere il metodo nearestCluster e capirne la logica
+    
     public Cluster nearestCluster(Tuple tuple){
         double minDistance=Double.MAX_VALUE;
         Cluster nearestCluster=null;
