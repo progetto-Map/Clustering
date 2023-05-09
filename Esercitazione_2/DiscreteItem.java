@@ -4,9 +4,10 @@ public class DiscreteItem extends Item {
     /**
      * COMPORTAMENTO: inizializza i valori dei membri attributi
      * 
-     * @param attribute
-     * @param value
+     * @param attribute // attributo coinvolto nell'item
+     * @param value     // valore assegnato all'attributo
      */
+    *
     DiscreteItem(Attribute attribute, Object value) {
         super(attribute, value);
     }
@@ -24,7 +25,6 @@ public class DiscreteItem extends Item {
             return 1;
         }
     }
-
 
     /**
      * COMPORTAMENTO: Determina il numero di volte che il valore v compare in

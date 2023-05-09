@@ -287,80 +287,104 @@ class Data {
      * sequenza di coppie Attributo-valore la i-esima riga in data.
      * 
      * @param index indice di riga
-     * @return tuple;
+     * @return tuple Oggetto di Tuple
      */
-    protected Tuple getItemSet(int index){
+    protected Tuple getItemSet(int index) {
         Tuple tuple = new Tuple(attributeSet.length);
-        for (int i = 0; i < attributeSet.length; i++){
-            tuple.add(new DiscreteItem(attributeSet[i], (String) data[index][i]),i);
-            
+        for (int i = 0; i < attributeSet.length; i++) {
+            tuple.add(new DiscreteItem(attributeSet[i], (String) data[index][i]), i);
+
         }
         return tuple;
     }
 
-    int [] sampling(int k) {
-        int centroidIndexes[] =new int[k];
-        //choose k random different centroids in data.
-        Random rand=new Random();
+    /**
+     * COMPORTAMENTO:
+     * 
+     * @param k Numero di cluster da generare
+     * @return array Di k interi rappresentanti gli indici di riga in data per le
+     */
+    int[] sampling(int k) {
+        int centroidIndexes[] = new int[k];
+        // choose k random different centroids in data.
+        Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
-        for (int i=0; i<k;i++){
+        for (int i = 0; i < k; i++) {
             boolean found = false;
             int c;
-            do
-            {
-                found=false;
-                c=rand.nextInt(getNumberOfExamples());
-                /*verify that centroid[c] is not equal to a centroide already
-                stored in CentroidIndexes */
-                for (int j=0; j<i;j++)
-                    if(compare(centroidIndexes[j],c)){
+            do {
+                found = false;
+                c = rand.nextInt(getNumberOfExamples());
+                /*
+                 * verify that centroid[c] is not equal to a centroide already
+                 * stored in CentroidIndexes
+                 */
+                for (int j = 0; j < i; j++)
+                    if (compare(centroidIndexes[j], c)) {
                         found = true;
                         break;
                     }
-            }
-            while(found);
-            centroidIndexes[i]=c;
+            } while (found);
+            centroidIndexes[i] = c;
         }
         return centroidIndexes;
     }
 
-    private boolean compare(int i, int j){
+    /**
+     * COMPORTAMENTO: restituisce vero se le due righe di data contengono gli stessi
+     * valori, falso altrimenti
+     * 
+     * @param i Indice di una riga nell'insieme in Data
+     * @param j Indice di una riga nell'insieme in Data
+     * @return result True oppure false
+     */
+    private boolean compare(int i, int j) {
         boolean result = true;
-        for (int k=0; i<getNumberOfAttributes();k++){
-            if (!data[i][k].equals(data[j][k])){
+        for (int k = 0; i < getNumberOfAttributes(); k++) {
+            if (!data[i][k].equals(data[j][k])) {
                 result = false;
             }
         }
         return result;
     }
 
-    protected Object ComputePrototype(ArraySet idList, Attribute attribute){
-        return computePrototype(idList,(DiscreteAttribute)attribute);
-    }
-
-    String computePrototype(ArraySet idList, DiscreteAttribute attribute){
-        
-    }
-
-
-    }
-
     /**
      * COMPORTAMENTO: restituisce computePrototype(idList,
      * (DiscreteAttribute)attribute)
      * 
-     * @param idList    insieme di indici di riga
-     * @param attribute attributo rispetto al quale calcolare il prototipo
+     * @param idList    Insieme di indici di riga
+     * @param attribute Attributo rispetto al quale calcolare il prototipo
      *                  (centroide)
-     * @return valore centroide rispetto ad attribute
+     * @return Valore centroide rispetto ad attribute
+     */
+    protected Object ComputePrototype(ArraySet idList, Attribute attribute) {
+        return computePrototype(idList, (DiscreteAttribute) attribute);
+    }
+
+    String computePrototype(ArraySet idList, DiscreteAttribute attribute) {
+
+    }
+
+    }
+
+    /**
+     * COMPORTAMENTO: Determina il valore che occorre più frequentemente per
+     * attribute nel sottoinsieme di dati individuato da idList (fare uso del metodo
+     * frequency(...) di DiscretAttribute).
+     * 
+     * @param idList    Insieme degli indici delle righe di data appartenenti as un
+     *                  cluster
+     * @param attribute Attributo discreto rispetto al quale calcolare il prototipo
+     *                  (centroide)
+     * @return a Centroide rispetto ad attribute
      */
     protected String computePrototype(ArraySet idList, Attribute attribute) {
         int i = 0;
-        for(i = 0; i < data.length; i++){
-            String a = computePrototype(idList, attribute.frequency(this.data,idList,getValue(i)));
+        for (i = 0; i < data.length; i++) {
+            String a = computePrototype(idList, attribute.frequency(this.data, idList, getValue(i)));
             return a;
         }
-        }
+    }
 
     public static void main(String args[]) {
         Data trainingSet = new Data();
