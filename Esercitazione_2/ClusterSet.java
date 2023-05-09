@@ -33,9 +33,18 @@ protected class ClusterSet {
             add(new Cluster(centroidI));
         }
     }
-
+    //da rivedere il metodo nearestCluster e capirne la logica
     public Cluster nearestCluster(Tuple tuple){
-        
+        double minDistance=Double.MAX_VALUE;
+        Cluster nearestCluster=null;
+        for (int i=1;i<C.length;i++){
+            double distance=tuple.getDistance(C[i].getCentroid());
+            if (distance<minDistance){
+                minDistance=distance;
+                nearestCluster=C[i];
+            }
+        }
+        return nearestCluster;
     }
 
     public Cluster currentCluster(int id){
