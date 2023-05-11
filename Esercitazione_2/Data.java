@@ -361,12 +361,6 @@ class Data {
         return computePrototype(idList, (DiscreteAttribute) attribute);
     }
 
-    String computePrototype(ArraySet idList, DiscreteAttribute attribute) {
-
-    }
-
-    }
-
     /**
      * COMPORTAMENTO: Determina il valore che occorre più frequentemente per
      * attribute nel sottoinsieme di dati individuato da idList (fare uso del metodo
@@ -381,7 +375,7 @@ class Data {
     protected String computePrototype(ArraySet idList, Attribute attribute) {
         int i = 0;
         for (i = 0; i < data.length; i++) {
-            String a = computePrototype(idList, attribute.frequency(this.data, idList, getValue(i)));
+            String a = computePrototype(idList, attribute.frequency(this.data, idList, attribute.getValue(i)));
             return a;
         }
     }
