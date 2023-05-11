@@ -1,3 +1,4 @@
+package mining;
 public class KMeansMiner {
     private ClusterSet C; // Riferimento ad un oggetto ClusterSet
 

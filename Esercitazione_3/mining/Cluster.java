@@ -1,3 +1,4 @@
+package mining;
 
 public class Cluster {
 	private Tuple centroid;
@@ -31,7 +32,7 @@ public class Cluster {
 		
 	}
 	
-	//verifica se una transazione è clusterizzata nell'array corrente
+	//verifica se una transazione ï¿½ clusterizzata nell'array corrente
 	boolean contain(int id){
 		return clusteredData.get(id);
 	}
