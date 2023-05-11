@@ -8,7 +8,7 @@ public class ClusterSet {
      * @param k Numero di cluster da generare(k-means)
      */
     ClusterSet(int k) {
-        
+        Cluster C[] = new Cluster[k];
     }
 
     /**
@@ -97,13 +97,7 @@ public class ClusterSet {
     }
 
     public String toString() {
-        String str = "";
-        for (int i = 0; i < C.length; i++) {
-            if (C[i] != null) {
-                str += i + ":" + C[i].toString() + "\n";
-            }
-        }
-        return str;
+
     }
 
     /**
