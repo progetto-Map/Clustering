@@ -97,7 +97,13 @@ public class ClusterSet {
     }
 
     public String toString() {
-
+        String str = "";
+        for (int i = 0; i < C.length; i++) {
+            if (C[i] != null) {
+                str += i + ":" + C[i].toString() + "\n";
+            }
+        }
+        return str;
     }
 
     /**
