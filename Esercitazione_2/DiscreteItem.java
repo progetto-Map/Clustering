@@ -7,8 +7,8 @@ public class DiscreteItem extends Item {
      * @param attribute // attributo coinvolto nell'item
      * @param value     // valore assegnato all'attributo
      */
-    *
-    DiscreteItem(Attribute attribute, Object value) {
+    
+    protected DiscreteItem(Attribute attribute, Object value) {
         super(attribute, value);
     }
 
@@ -18,32 +18,11 @@ public class DiscreteItem extends Item {
      * @param a
      * @return 1 o 0
      */
-    double distance(Object a) {
+    public double distance(Object a) {
         if (getValue().equals(a)) {
             return 0;
         } else {
             return 1;
         }
     }
-
-    /**
-     * COMPORTAMENTO: Determina il numero di volte che il valore v compare in
-     * corrispondenza dell'attributo corrente (indice di colonna) negli esempi
-     * memorizzati in data e indicizzate (per riga) da idList
-     * 
-     * @param data   Riferimento ad un oggetto Data
-     * @param idList Riferimento ad un oggetto ArraySet (che mantiene l'insieme
-     *               degli indici di riga di alcune tuple memorizzate in data)
-     * @param v      Valore discreto
-     * @return count Numero di occorrenze del valore discreto (intero)
-     */
-    private int frequency(Data data, ArraySet idList, String v) {
-        int vet[] = idList.toArray();
-        int count = 0;
-        for (int i = 0; i < vet.length; i++) {
-            if ((boolean) data.getAttributeValue(vet[i], this.getIndex()).equals(v)) {
-                count++;
-            }
-        }
-        return count;
 }

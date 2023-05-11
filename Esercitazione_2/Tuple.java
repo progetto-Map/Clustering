@@ -50,8 +50,9 @@ public class Tuple {
     public double getDistance(Tuple obj) {
         try {
             double distance = 0;
-            for (int i = 0; i < tuple.length; i++)
+            for (int i = 0; i < tuple.length; i++){
                 distance += tuple[i].distance(obj.get(i).getValue());
+            }
             return distance;
         } catch (Exception e) {
             System.out.println("Error: " + e);
