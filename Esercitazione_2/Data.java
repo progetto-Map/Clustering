@@ -239,10 +239,6 @@ class Data {
      * @param attributeIndex indice di colonna in riferimento alla matrice
      *                       memorizzata in data
      * @return data[exampleIndex][attributeIndex] Restituisce lo schema dei dati
-     * 
-     * 
-     *         SUL PDF STA SCRITTO CHE QUESTI COMMENTI SI RIFERISCONO AL METODO
-     *         getAttributeSchema()
      */
     Object getAttributeValue(int exampleIndex, int attributeIndex) {
         return data[exampleIndex][attributeIndex];
@@ -331,8 +327,7 @@ class Data {
     }
 
     /**
-     * COMPORTAMENTO: restituisce vero se le due righe di data contengono gli stessi
-     * valori, falso altrimenti
+     * COMPORTAMENTO: restituisce vero se le due righe di data contengono gli stessi valori, falso altrimenti
      * 
      * @param i Indice di una riga nell'insieme in Data
      * @param j Indice di una riga nell'insieme in Data
@@ -377,6 +372,18 @@ class Data {
         for (i = 0; i < data.length; i++) {
             String a = computePrototype(idList, attribute.frequency(this.data, idList, attribute.getValue(i)));
             return a;
+        }
+    }
+
+    private int countDistinctTuples(){
+        int count = 0;
+        int i = 0;
+        int j = 0;
+        for(count = 0; j < getNumberOfAttributes(); j++){
+            while(compare(i,j)){
+                count ++;
+            }
+            return count;
         }
     }
 
