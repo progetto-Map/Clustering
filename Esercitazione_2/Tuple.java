@@ -8,7 +8,7 @@ public class Tuple {
      * @param size Numero di item che costituirà la tupla
      */
     public Tuple(int size) {
-        Item[] tuple = new Item[size];
+        tuple = new Item[size];
     }
 
     /**
@@ -24,7 +24,7 @@ public class Tuple {
      * @param i parametro di tipo intero
      * @return tuple[i] Restituisce lo item in posizione i
      */
-    private Item get(int i) {
+    public Item get(int i) {
         return tuple[i];
     }
 

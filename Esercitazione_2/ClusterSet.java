@@ -8,7 +8,7 @@ public class ClusterSet {
      * @param k Numero di cluster da generare(k-means)
      */
     ClusterSet(int k) {
-        Cluster C[] = new Cluster[k];
+        C = new Cluster[k];
     }
 
     /**
