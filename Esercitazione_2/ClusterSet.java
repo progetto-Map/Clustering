@@ -1,4 +1,4 @@
-protected class ClusterSet {
+public class ClusterSet {
     Cluster C[];
     int i = 0; // posizione valida per la memorizzazione di un nuovo cluster in C
 
