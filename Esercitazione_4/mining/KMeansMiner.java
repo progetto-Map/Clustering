@@ -15,7 +15,7 @@ public class KMeansMiner {
      * 
      * @return C Riferimento ad un oggetto ClusterSet
      */
-    private ClusterSet getC() {
+    public ClusterSet getC() {
         return C;
     }
 

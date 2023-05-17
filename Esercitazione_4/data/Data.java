@@ -29,17 +29,15 @@ class Data {
         private int i = 0;
         @Override
         public int compareTo(Example o) {
-            Iterator<String> it = (String)example.iterator();
-            for (Object  ex : example) {
-                if(!ex.equals(o.get(i))){
-                    
-                    
-                    return 1 ? -1;
-                }
-                
+            for ( int i=0; i<example.size(); i++) {
+              if (example.get(i).equals(o.get(i))) {
+                return 0;
+              } else {
+                return (((String)example.get(i)).compareTo((String)o.get(i) )< 0) ? 1 : -1;
+              }
             }
             return 0;
-        }
+          }
 
         public String toString(){
             
