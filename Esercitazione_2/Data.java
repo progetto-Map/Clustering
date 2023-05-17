@@ -1,5 +1,4 @@
-import java.util.Random;
-
+import java.util.*;
 class Data {
     // Le visibilità di classi , attributi e metodi devono essere decise dagli
     // studenti
@@ -16,6 +15,39 @@ class Data {
      * correttamente, nome, indice e dominio di ciascun attributo.
      * Inizializza numberOfExamples
      */
+
+
+    private class Example implements Comparable<Example>{
+        private List<Object> example = new ArrayList<Object>();
+        private void add(Object o){
+            example.add(o);
+        }
+        private Object get(int i){
+            return example.get(i);
+        }
+        
+        private int i = 0;
+        @Override
+        public int compareTo(Example o) {
+            for (Object  ex : example) {
+                while(example.get(i).equals(o.get(i))){
+                    i++;
+                    return 0;
+                }
+                return 1;
+            }
+            return -1;
+        }
+
+        public String toString(){
+            
+            for (Object o : example) {
+                return o.toString();
+            }
+            return null;
+        }
+
+    }
     Data() {
 
         // data
@@ -185,33 +217,33 @@ class Data {
         // outlook, temperature,etc)
         // nel seguito si fornisce l'esempio per outlook
 
-        String outLookValues[] = new String[3];
-        outLookValues[0] = "overcast";
-        outLookValues[1] = "rain";
-        outLookValues[2] = "sunny";
-        attributeSet[0] = new DiscreteAttribute("Outlook", 0, outLookValues);
-
-        String temperatureValues[] = new String[3];
-        temperatureValues[0] = "Hot";
-        temperatureValues[1] = "Mild";
-        temperatureValues[2] = "Cool";
-        attributeSet[1] = new DiscreteAttribute("Temperature", 1, temperatureValues);
-
-        String humidityValues[] = new String[2];
-        humidityValues[0] = "High";
-        humidityValues[1] = "Normal";
-        attributeSet[2] = new DiscreteAttribute("Humidity", 2, humidityValues);
-
-        String windValues[] = new String[2];
-        windValues[0] = "Weak";
-        windValues[1] = "Strong";
-        attributeSet[3] = new DiscreteAttribute("Wind", 3, windValues);
-
-        String playTennisValues[] = new String[2];
-        playTennisValues[0] = "No";
-        playTennisValues[1] = "Yes";
-        attributeSet[4] = new DiscreteAttribute("PlayTennis", 4, playTennisValues);
-
+        TreeSet outLookValues= new TreeSet();
+        outLookValues.add("overcast");
+        outLookValues.add("rain");
+        outLookValues.add("sunny");
+        attributeSet[0] = new DiscreteAttribute("Outlook",0, outLookValues);
+    
+        TreeSet temperatureValues=new TreeSet();
+        temperatureValues.add("hot");
+        temperatureValues.add("mild");
+        temperatureValues.add("cold");
+        attributeSet[1] = new DiscreteAttribute("Temperature",1, temperatureValues);
+    
+        TreeSet humidityValues=new TreeSet();
+        humidityValues.add("high");
+        humidityValues.add("normal");
+        attributeSet[2] = new DiscreteAttribute("Humidity",2, humidityValues);
+    
+        TreeSet windValues=new TreeSet();
+        windValues.add("weak");
+        windValues.add("strong");
+        attributeSet[3] = new DiscreteAttribute("Wind",3, windValues);
+    
+        TreeSet playTennisValues=new TreeSet();
+        playTennisValues.add("yes");
+        playTennisValues.add("no");
+        attributeSet[4] = new DiscreteAttribute("PlayTennis",4, playTennisValues);
+        distinctTuples=countDistinctTuples();
     }
 
     /**
@@ -343,6 +375,7 @@ class Data {
         return result;
     }
 
+    /*
     /**
      * COMPORTAMENTO: restituisce computePrototype(idList,
      * (DiscreteAttribute)attribute)
@@ -351,11 +384,11 @@ class Data {
      * @param attribute Attributo rispetto al quale calcolare il prototipo
      *                  (centroide)
      * @return Valore centroide rispetto ad attribute
-     */
-    protected Object ComputePrototype(ArraySet idList, Attribute attribute) {
+     *//*    protected Object ComputePrototype(ArraySet idList, Attribute attribute) {
         return computePrototype(idList, (DiscreteAttribute) attribute);
     }
-
+    */
+    /*
     /**
      * COMPORTAMENTO: Determina il valore che occorre più frequentemente per
      * attribute nel sottoinsieme di dati individuato da idList (fare uso del metodo
@@ -366,14 +399,31 @@ class Data {
      * @param attribute Attributo discreto rispetto al quale calcolare il prototipo
      *                  (centroide)
      * @return a Centroide rispetto ad attribute
-     */
-    protected String computePrototype(ArraySet idList, Attribute attribute) {
+     *//*     protected String computePrototype(ArraySet idList, Attribute attribute) {
         int i = 0;
         for (i = 0; i < data.length; i++) {
             String a = computePrototype(idList, attribute.frequency(this.data, idList, attribute.getValue(i)));
             return a;
         }
-    }
+    }*/
+
+    Object computePrototype(ArraySet idList, Attribute attribute){
+        //il metodo restituisce il valore centroide rispetto ad attribute
+        return computePrototype(idList, (DiscreteAttribute)attribute);
+      }
+      String computePrototype(TreeSet<String> idList, DiscreteAttribute attribute){
+    
+        String first=attribute.iterator().next();
+        int max=attribute.frequency(this,idList,first);
+        for(String s:attribute){
+          int tmp=attribute.frequency(this,idList,s);
+          if(tmp>max){
+            max=tmp;
+            first=s;
+          }
+        }
+        return first;
+      }
 
     private int countDistinctTuples(){
         int count = 0;
