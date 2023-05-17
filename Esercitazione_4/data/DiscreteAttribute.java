@@ -73,8 +73,6 @@
 
 //questo codcie funziona ma mananco tutti i commenti per il javadoc 
 
-package data;
-
 import java.util.Iterator;
 import java.util.TreeSet;
 
