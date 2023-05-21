@@ -15,7 +15,7 @@ public class Tuple {
      * 
      * @return tuple.lenght Restiuisce questo attributo
      */
-    protected int getLength() {
+    public int getLength() {
         return tuple.length;
     }
 

@@ -2,9 +2,9 @@ import java.util.*;
 class Data {
     // Le visibilità di classi , attributi e metodi devono essere decise dagli
     // studenti
-    Object data[][]; // una matrice nXm di tipo Object dove ogni riga modella una transazione
+    List<Example> data = new ArrayList<Example>(); // una matrice nXm di tipo Object dove ogni riga modella una transazione
     int numberOfExamples; // cardinalità dell'insieme di transazioni (numero di righe in data)
-    Attribute attributeSet[]; // un vettore degli attributi in ciascuna tupla (schema della tabella di dati)
+    List<Attribute> attributeSet = new LinkedList<Attribute>(); // un vettore degli attributi in ciascuna tupla (schema della tabella di dati)
 
     /*
      * COMPORTAMENTO: Inizializza la matrice data [][] con transazioni di esempio
@@ -17,9 +17,10 @@ class Data {
      */
 
 
-    private class Example implements Comparable<Example>{
+    public class Example implements Comparable<Example>{
         private List<Object> example = new ArrayList<Object>();
-        private void add(Object o){
+        
+        public void add(Object o){
             example.add(o);
         }
         private Object get(int i){
@@ -51,7 +52,7 @@ class Data {
     Data() {
 
         // data
-
+/*
         data = new Object[14][5];
 
         data[0][0] = new String("sunny");
@@ -203,14 +204,49 @@ class Data {
         data[11][4] = new String("yes");
         data[12][4] = new String("yes");
         data[13][4] = new String("no");
+        */
+
+        TreeSet<Example> TempData = new TreeSet<Example>();
+
+        Example ex0 = new Example();
+        Example ex1 = new Example();
+        Example ex2 = new Example();
+        Example ex3 = new Example();
+        Example ex4 = new Example();
+        Example ex5 = new Example();
+        Example ex6 = new Example();
+        Example ex7 = new Example();
+        Example ex8 = new Example();
+        Example ex9 = new Example();
+        Example ex10 = new Example();
+        Example ex11 = new Example();
+        Example ex12 = new Example();
+        Example ex13 = new Example();
+
+        //da completare
 
         // numberOfExamples
+
+        ex0.add(new String("sunny"));
+        ex1.add(new String("sunny"));
+        ex2.add(new String("sunny"));
+        ex3.add(new String("rain"));
+        ex4.add(new String("rain"));
+        ex5.add(new String("rain"));
+        ex6.add(new String("rain"));
+        ex7.add(new String("rain"));
+        ex8.add(new String("rain"));
+        ex9.add(new String("rain"));
+        ex10.add(new String("overcast"));
+        ex11.add(new String("overcast"));
+        ex12.add(new String("overcast"));
+        ex13.add(new String("overcast"));
 
         numberOfExamples = 14;
 
         // explanatory Set
 
-        attributeSet = new Attribute[5];
+        attributeSet = new LinkedList<Attribute>();
 
         // TO DO : avvalorare ciascune elemento di attributeSet con un oggetto della
         // classe DiscreteAttribute che modella il corrispondente attributo (e.g.
@@ -221,29 +257,29 @@ class Data {
         outLookValues.add("overcast");
         outLookValues.add("rain");
         outLookValues.add("sunny");
-        attributeSet[0] = new DiscreteAttribute("Outlook",0, outLookValues);
+        List<Attribute>attributeSet0 = new DiscreteAttribute("Outlook",0, outLookValues);
     
         TreeSet temperatureValues=new TreeSet();
         temperatureValues.add("hot");
         temperatureValues.add("mild");
         temperatureValues.add("cold");
-        attributeSet[1] = new DiscreteAttribute("Temperature",1, temperatureValues);
+        List<Attribute>attributeSet1 = new DiscreteAttribute("Temperature",1, temperatureValues);
     
         TreeSet humidityValues=new TreeSet();
         humidityValues.add("high");
         humidityValues.add("normal");
-        attributeSet[2] = new DiscreteAttribute("Humidity",2, humidityValues);
+        List<Attribute>attributeSet2 = new DiscreteAttribute("Humidity",2, humidityValues);
     
         TreeSet windValues=new TreeSet();
         windValues.add("weak");
         windValues.add("strong");
-        attributeSet[3] = new DiscreteAttribute("Wind",3, windValues);
+        List<Attribute>attributeSet3 = new DiscreteAttribute("Wind",3, windValues);
     
         TreeSet playTennisValues=new TreeSet();
         playTennisValues.add("yes");
         playTennisValues.add("no");
-        attributeSet[4] = new DiscreteAttribute("PlayTennis",4, playTennisValues);
-        distinctTuples=countDistinctTuples();
+        List<Attribute>attributeSet4 = new DiscreteAttribute("PlayTennis",4, playTennisValues);
+
     }
 
     /**
@@ -424,18 +460,6 @@ class Data {
         }
         return first;
       }
-
-    private int countDistinctTuples(){
-        int count = 0;
-        int i = 0;
-        int j = 0;
-        for(count = 0; j < getNumberOfAttributes(); j++){
-            while(compare(i,j)){
-                count ++;
-            }
-        }
-        return count;
-    }
 
     public static void main(String args[]) {
         Data trainingSet = new Data();
