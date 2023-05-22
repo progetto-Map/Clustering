@@ -66,7 +66,7 @@ public class Tuple {
      * @return p Sarebbe la media delle distanze tra la tupla corrente e quelle
      *         ottenibili
      */
-    protected double avgDistance(Data data, int clusterData[]) {
+    public double avgDistance(Data data, int clusterData[]) {
         double p = 0.0, sumD = 0.0;
         for (int i = 0; i < clusterData.length; i++) {
             double d = getDistance(data.getItemSet(clusterData[i]));

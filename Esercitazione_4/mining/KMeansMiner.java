@@ -1,4 +1,9 @@
 package mining;
+
+import java.util.HashSet;
+import java.util.Set;
+import Data.Data;
+
 public class KMeansMiner {
     private ClusterSet C; // Riferimento ad un oggetto ClusterSet
 

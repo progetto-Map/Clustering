@@ -1,4 +1,4 @@
-abstract class Item {
+public abstract class Item {
     Attribute attribute; // attributo coinvolto nell'item
     Object value; // valore assegnato all'attributo
 
@@ -28,7 +28,7 @@ abstract class Item {
      * @return value Valore assegnato all'attributo
      * 
      */
-    Object getValue() {
+    public Object getValue() {
         return value;
     }
 
@@ -42,7 +42,7 @@ abstract class Item {
     }
 
     /**
-     * COMPORTAMENTO: L’implementazione sarà diversa per item discreto e item
+     * COMPORTAMENTO: L’impjhlementazione sarà diversa per item discreto e item
      * continuo
      * 
      * VEDERE SE IL METODO è GIUSTO
@@ -58,7 +58,7 @@ abstract class Item {
      * @param clusteredData Insieme di indici delle righe della matrice in data che
      *                      formano il cluster
      */
-    void update(Data data, ArraySet clusteredData) {
+    public void update(Data data, HashSet clusteredData) {
         this.value = data.computePrototype(clusteredData, attribute);
     }
 

@@ -1,13 +1,15 @@
 package mining;
 
 import java.util.HashSet;
-import data.Tuple;
-import data.Data;
+import java.util.Set;
+import Data.Data;
+import Data.Tuple;
 
-public class Cluster {
+
+public class Cluster{
 	private Tuple centroid;
 
-	private HashSet clusteredData; 
+	private Set<Integer> clusteredData = new HashSet<Integer>(); 
 	
 	/*Cluster(){
 		
@@ -24,7 +26,7 @@ public class Cluster {
 	}
 	
 	void computeCentroid(Data data){
-		for(int i=0;i<centroid.getLength();i++){
+		for(int i=0;i < centroid.getLength();i++){
 			centroid.get(i).update(data,clusteredData);
 			
 		}
@@ -64,11 +66,11 @@ public class Cluster {
 		for(int i=0;i<centroid.getLength();i++)
 			str+=centroid.get(i)+ " ";
 		str+=")\nExamples:\n";
-		int array[]=clusteredData.toArray();
+		int array[]=clusteredData.stream().mapToInt(Number::intValue).toArray();
 		for(int i=0;i<array.length;i++){
 			str+="[";
-			for(int j=0;j<data.getNumberOfExplanatoryAttributes();j++)
-				str+=data.getValue(array[i], j)+" ";
+			for(int j=0;j<data.getNumberOfAttributes();j++)
+				str+=data.getAttributeValue(array[i], j)+" ";
 			str+="] dist="+getCentroid().getDistance(data.getItemSet(array[i]))+"\n";
 			
 		}

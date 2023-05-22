@@ -1,4 +1,11 @@
 package mining;
+
+import java.util.HashSet;
+import java.util.Set;
+import Data.Data;
+import Data.Tuple;
+
+
 public class ClusterSet {
     Cluster C[];
     int i = 0; // posizione valida per la memorizzazione di un nuovo cluster in C

@@ -1,5 +1,7 @@
+package data;
+
 import java.util.*;
-class Data {
+public class Data {
     // Le visibilità di classi , attributi e metodi devono essere decise dagli
     // studenti
     List<Example> data = new ArrayList<Example>(); // una matrice nXm di tipo Object dove ogni riga modella una transazione
@@ -287,7 +289,7 @@ class Data {
      * 
      * @return numberOfExamples Cardinalità dell'insieme di transazioni
      */
-    int getNumberOfExamples() {
+    public int getNumberOfExamples() {
         return numberOfExamples;
     }
 
@@ -296,8 +298,8 @@ class Data {
      * 
      * @return attributeSet.lengh Cardinalità dell'insieme degli attributi
      */
-    int getNumberOfAttributes() {
-        return attributeSet.length;
+    public int getNumberOfAttributes() {
+        return attributeSet.size();
     }
 
     /**
@@ -308,8 +310,8 @@ class Data {
      *                       memorizzata in data
      * @return data[exampleIndex][attributeIndex] Restituisce lo schema dei dati
      */
-    Object getAttributeValue(int exampleIndex, int attributeIndex) {
-        return data[exampleIndex][attributeIndex];
+    public Object getAttributeValue(int exampleIndex, int attributeIndex) {
+        return data.get(exampleIndex);
     }
 
     /**
@@ -318,7 +320,7 @@ class Data {
      * @return attributeSet[index]
      */
     Attribute getAttribute(int index) {
-        return attributeSet[index];
+        return attributeSet.get(index);
     }
 
     /**
@@ -330,15 +332,15 @@ class Data {
      */
     public String toString() {
         String s = "";
-        for (int a = 0; a < attributeSet.length; a++) {
-            s = s + attributeSet[a].getName() + ",";
+        for (int a = 0; a < attributeSet.size(); a++) {
+            s = s + attributeSet.get(a).getName() + ",";
 
         }
         s = s + "\n";
         for (int b = 0; b < numberOfExamples; b++) {
             s = s + (b + 1) + ":";
-            for (int c = 0; c < attributeSet.length; c++) {
-                s = s + data[b][c] + ",";
+            for (int c = 0; c < attributeSet.size(); c++) {
+                s = s + data.get(b) + ",";
             }
             s = s + "\n";
         }
@@ -353,10 +355,10 @@ class Data {
      * @param index indice di riga
      * @return tuple Oggetto di Tuple
      */
-    protected Tuple getItemSet(int index) {
-        Tuple tuple = new Tuple(attributeSet.length);
-        for (int i = 0; i < attributeSet.length; i++) {
-            tuple.add(new DiscreteItem(attributeSet[i], (String) data[index][i]), i);
+    public Tuple getItemSet(int index) {
+        Tuple tuple = nhttps://twitter.com/myanimelist/status/1660280536789647362?s=20ew Tuple(attributeSet.size());
+        for (int i = 0; i < attributeSet.size(); i++) {
+            tuple.add(new DiscreteItem(attributeSet.get(i), ((Data) data).getItemSet(index)), i);
 
         }
         return tuple;
@@ -368,7 +370,7 @@ class Data {
      * @param k Numero di cluster da generare
      * @return array Di k interi rappresentanti gli indici di riga in data per le
      */
-    int[] sampling(int k) {
+    public int[] sampling(int k) {
         int centroidIndexes[] = new int[k];
         // choose k random different centroids in data.
         Random rand = new Random();
@@ -381,7 +383,7 @@ class Data {
                 c = rand.nextInt(getNumberOfExamples());
                 /*
                  * verify that centroid[c] is not equal to a centroide already
-                 * stored in CentroidIndexes
+                 * stored in Centr      oidIndexes
                  */
                 for (int j = 0; j < i; j++)
                     if (compare(centroidIndexes[j], c)) {
@@ -404,7 +406,7 @@ class Data {
     private boolean compare(int i, int j) {
         boolean result = true;
         for (int k = 0; i < getNumberOfAttributes(); k++) {
-            if (!data[i][k].equals(data[j][k])) {
+            if (!data.get(i).equals(data.get(j))) {
                 result = false;
             }
         }
@@ -443,7 +445,7 @@ class Data {
         }
     }*/
 
-    Object computePrototype(ArraySet idList, Attribute attribute){
+    Object computePrototype(HashSet idList, Attribute attribute){
         //il metodo restituisce il valore centroide rispetto ad attribute
         return computePrototype(idList, (DiscreteAttribute)attribute);
       }
