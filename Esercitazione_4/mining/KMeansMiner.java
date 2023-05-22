@@ -7,7 +7,7 @@ public class KMeansMiner {
      * 
      * @param k Numero di cluster da generare
      */
-    private KMeansMiner(int k) {
+    public KMeansMiner(int k) {
         C = new ClusterSet(k);
     }
 
