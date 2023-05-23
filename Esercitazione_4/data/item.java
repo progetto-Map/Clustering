@@ -1,5 +1,7 @@
 package Data;
 
+import java.util.HashSet;
+
 public abstract class Item {
     Attribute attribute; // attributo coinvolto nell'item
     Object value; // valore assegnato all'attributo

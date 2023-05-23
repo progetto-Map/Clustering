@@ -27,8 +27,7 @@ public class Cluster{
 	
 	void computeCentroid(Data data){
 		for(int i=0;i < centroid.getLength();i++){
-			centroid.get(i).update(data,clusteredData);
-			
+			centroid.get(i).update(data,(HashSet) clusteredData);
 		}
 		
 	}
