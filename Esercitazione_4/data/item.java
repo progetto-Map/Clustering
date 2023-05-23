@@ -62,7 +62,7 @@ public abstract class Item {
      * @param clusteredData Insieme di indici delle righe della matrice in data che
      *                      formano il cluster
      */
-    public void update(Data data, HashSet clusteredData) {
+    public void update(Data data, HashSet<Integer> clusteredData) {
         this.value = data.computePrototype(clusteredData, attribute);
     }
 
