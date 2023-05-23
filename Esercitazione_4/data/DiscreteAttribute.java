@@ -1,3 +1,11 @@
+package Data;
+
+import Data.Data;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
+
+
 /*public class DiscreteAttribute extends Attribute {
     private String values[]; // Array di oggetti String, uno per ciascun valore del dominio discreto.
                              // I valori del dominio sono memorizzati in values seguendo un ordine
@@ -73,12 +81,7 @@
 
 //questo codcie funziona ma mananco tutti i commenti per il javadoc 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.TreeSet;
-
-
-class DiscreteAttribute extends Attribute implements Iterable<String>, List<Attribute> {
+class DiscreteAttribute extends Attribute implements Iterable<Attribute>, List<Attribute> {
     private TreeSet<String> values;
     DiscreteAttribute(String name, int index, TreeSet<String> values){
         super(name,index); //invoca il costruttore della classe madre

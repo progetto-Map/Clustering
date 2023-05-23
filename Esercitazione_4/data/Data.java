@@ -1,4 +1,4 @@
-package data;
+package Data;
 
 import java.util.*;
 public class Data {
@@ -356,7 +356,7 @@ public class Data {
      * @return tuple Oggetto di Tuple
      */
     public Tuple getItemSet(int index) {
-        Tuple tuple = nhttps://twitter.com/myanimelist/status/1660280536789647362?s=20ew Tuple(attributeSet.size());
+        Tuple tuple = new Tuple(attributeSet.size());
         for (int i = 0; i < attributeSet.size(); i++) {
             tuple.add(new DiscreteItem(attributeSet.get(i), ((Data) data).getItemSet(index)), i);
 
