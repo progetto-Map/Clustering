@@ -1,3 +1,5 @@
+package Data;
+
 public abstract class Item {
     Attribute attribute; // attributo coinvolto nell'item
     Object value; // valore assegnato all'attributo
