@@ -1,4 +1,4 @@
-
+package Data;
 public class Tuple {
     private Item[] tuple; // tupla come sequenza di coppie attributo-valore
 

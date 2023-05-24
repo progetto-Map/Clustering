@@ -1,3 +1,4 @@
+package Data;
 abstract class Attribute {
     private String name; // nome simbolico dell'attributo
     private int index; // indentificativo numerico dell'attributo
@@ -29,6 +30,7 @@ abstract class Attribute {
      * @return INDEX identificativo numerico dell'attributo
      */
     protected int getIndex() {
+
         return this.index;
     }
 
@@ -39,6 +41,7 @@ abstract class Attribute {
      *         stringa rappresentante lo stato dell'oggetto
      */
     public String toString() {
+
         return this.name;
     }
 }

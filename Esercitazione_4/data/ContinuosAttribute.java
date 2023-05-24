@@ -1,3 +1,6 @@
+package Data;
+import Data.Attribute;
+
 public class ContinuosAttribute extends Attribute {
     private double max;
     private double min;

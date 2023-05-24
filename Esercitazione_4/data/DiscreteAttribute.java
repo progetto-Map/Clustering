@@ -1,6 +1,6 @@
 package Data;
 
-import Data.Data;
+import org.w3c.dom.Attr;
 
 import java.text.AttributedCharacterIterator.Attribute;
 import java.util.Iterator;
@@ -83,12 +83,14 @@ import java.util.TreeSet;
 
 //questo codcie funziona ma mananco tutti i commenti per il javadoc 
 
-class DiscreteAttribute extends Attribute implements Iterable<Attribute>, List<Attribute> {
+class DiscreteAttribute extends Attribute implements Iterable<Attribute>/*List<Attribute>*/{
     private TreeSet<String> values;
-    DiscreteAttribute(String name, int index, TreeSet<String> values){
-        super(name,index); //invoca il costruttore della classe madre
-        this.values=values;
+    DiscreteAttribute(String name, TreeSet<String> values) {
+        super(name); //invoca il costruttore della classe madre
+        this.values = values;
     }
+
+    @Override
     public Iterator<String> iterator() {
         return values.iterator();
     }
