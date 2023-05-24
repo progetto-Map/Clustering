@@ -83,7 +83,7 @@ import java.util.TreeSet;
 
 //questo codcie funziona ma mananco tutti i commenti per il javadoc 
 
-class DiscreteAttribute extends Attribute implements Iterable<Attribute>/*List<Attribute>*/{
+class DiscreteAttribute extends Attribute implements Iterable<String>/*List<Attribute>*/{
     private TreeSet<String> values;
     DiscreteAttribute(String name, TreeSet<String> values) {
         super(name); //invoca il costruttore della classe madre
