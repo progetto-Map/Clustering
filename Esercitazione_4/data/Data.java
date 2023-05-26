@@ -1,6 +1,9 @@
 package Data;
 
 import java.util.*;
+import Data.DiscreteAttribute;
+import java.util.Iterator;
+
 public class Data {
     // Le visibilità di classi , attributi e metodi devono essere decise dagli
     // studenti
@@ -51,7 +54,7 @@ public class Data {
         }
 
     }
-    Data() {
+    public Data() {
 
         // data
 /*
@@ -250,37 +253,33 @@ public class Data {
 
         attributeSet = new LinkedList<Attribute>();
 
-        // TO DO : avvalorare ciascune elemento di attributeSet con un oggetto della
-        // classe DiscreteAttribute che modella il corrispondente attributo (e.g.
-        // outlook, temperature,etc)
-        // nel seguito si fornisce l'esempio per outlook
 
-        TreeSet outLookValues= new TreeSet();
-        outLookValues.add("overcast");
-        outLookValues.add("rain");
-        outLookValues.add("sunny");
-        List<Attribute>attributeSet0 = new DiscreteAttribute("Outlook",0, outLookValues);
+        String[] outLookValues = new String[3];
+        outLookValues[0] = "overcast";
+        outLookValues[1] = "rain";
+        outLookValues[2] = "sunny";
+
+        attributeSet.add(0, new DiscreteAttribute("Outlook", 0, outLookValues));
+        String[] temperatureValues = new String[3];
+        temperatureValues[0] = "hot";
+        temperatureValues[1] = "mild";
+        temperatureValues[2] = "cold";
+        attributeSet.add(1, new DiscreteAttribute("Temperature", 1, temperatureValues));
     
-        TreeSet temperatureValues=new TreeSet();
-        temperatureValues.add("hot");
-        temperatureValues.add("mild");
-        temperatureValues.add("cold");
-        List<Attribute>attributeSet1 = new DiscreteAttribute("Temperature",1, temperatureValues);
+        String[] humidityValues = new String[2];
+        humidityValues[0] = "high";
+        humidityValues[1] = "normal";
+        attributeSet.add( 2, new DiscreteAttribute("Humidity",2, humidityValues));
     
-        TreeSet humidityValues=new TreeSet();
-        humidityValues.add("high");
-        humidityValues.add("normal");
-        List<Attribute>attributeSet2 = new DiscreteAttribute("Humidity",2, humidityValues);
+        String[] windValues=new String[2];
+        windValues[0] = "weak";
+        windValues[1] = "strong";
+        attributeSet.add(3, new DiscreteAttribute("Wind",3, windValues));
     
-        TreeSet windValues=new TreeSet();
-        windValues.add("weak");
-        windValues.add("strong");
-        List<Attribute>attributeSet3 = new DiscreteAttribute("Wind",3, windValues);
-    
-        TreeSet playTennisValues=new TreeSet();
-        playTennisValues.add("yes");
-        playTennisValues.add("no");
-        List<Attribute>attributeSet4 = new DiscreteAttribute("PlayTennis",4, playTennisValues);
+        String[] playTennisValues=new String[2];
+        playTennisValues[0] = "yes";
+        playTennisValues[1] = "no";
+        attributeSet.add(4, new DiscreteAttribute("PlayTennis",4, playTennisValues));
 
     }
 
@@ -449,9 +448,9 @@ public class Data {
         //il metodo restituisce il valore centroide rispetto ad attribute
         return computePrototype(idList, (DiscreteAttribute)attribute);
       }
-      String computePrototype(TreeSet<String> idList, DiscreteAttribute attribute){
+      String computePrototype (HashSet idList, DiscreteAttribute attribute){
     
-        String first=attribute.iterator().next();
+        String first="";
         int max=attribute.frequency(this,idList,first);
         for(String s:attribute){
           int tmp=attribute.frequency(this,idList,s);

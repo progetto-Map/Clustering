@@ -37,7 +37,7 @@ public class KMeansMiner {
      * @param data Riferimento ad un oggetto Data
      * @return Numero di iterazioni eseguite
      */
-    private int kmeans(Data data) {
+    public int kmeans(Data data) {
         int numberOfInterations = 0;
         C.initializeCentroids(data);
         boolean changedCluster = false;

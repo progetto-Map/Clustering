@@ -1,14 +1,12 @@
 package Data;
 
-import org.w3c.dom.Attr;
-
-import java.text.AttributedCharacterIterator.Attribute;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.HashSet;
 
 
-/*public class DiscreteAttribute extends Attribute {
+public class DiscreteAttribute extends Attribute {
     private String values[]; // Array di oggetti String, uno per ciascun valore del dominio discreto.
                              // I valori del dominio sono memorizzati in values seguendo un ordine
                              // lessicografico.
@@ -19,9 +17,8 @@ import java.util.TreeSet;
      * 
      * @param name     nome dell'attributo
      * @param index    identificativo numerico dell'attributo
-     * @param values[] array di stringhe rappresentanti il dominio dell'attributo
+     * @param values array di stringhe rappresentanti il dominio dell'attributo
      */
-    /* 
     public DiscreteAttribute(String name, int index, String values[]) {
         super(name, index);
         this.values = new String[values.length];
@@ -33,7 +30,7 @@ import java.util.TreeSet;
      * 
      * @return LENGHT DI NumberOfDistinctValues numero di valori discreti nel
      *         dominio dell'attributo
-     *//* 
+     */
     public int getNumberOfDistinctValues() {
         return this.values.length;
     }
@@ -43,7 +40,7 @@ import java.util.TreeSet;
      * 
      * @param i posizione di un valore in values
      * @return values[i] Valore discreto in posizione "i" di values
-     *//* 
+     */
     protected String getValue(int i) {
         return values[i];
     }
@@ -58,9 +55,14 @@ import java.util.TreeSet;
      *               degli indici di riga di alcune tuple memorizzate in data)
      * @param v      Valore discreto
      * @return count Numero di occorrenze del valore discreto (intero)
-     *//* 
-    protected int frequency(Data data, ArraySet idList, String v) {
-        int vet[] = idList.toArray();
+     */
+    protected int frequency(Data data, HashSet<Integer> idList, String v) {
+        int vet[] = new int[]{idList.size()}; //fare copia per valori
+        for (int a = 0; a < vet.length; a++){
+            for (int i : vet) {
+                idList.toArray();
+            }
+        }
         int count = 0;
         for (int i = 0; i < vet.length; i++) {
             if ((boolean) data.getAttributeValue(vet[i], this.getIndex()).equals(v)) {
@@ -82,11 +84,11 @@ import java.util.TreeSet;
 //}
 
 //questo codcie funziona ma mananco tutti i commenti per il javadoc 
-
-class DiscreteAttribute extends Attribute implements Iterable<String>/*List<Attribute>*/{
+/*
+class DiscreteAttribute extends Attribute implements Iterable<String>/*List<Attribute>{
     private TreeSet<String> values;
-    DiscreteAttribute(String name, TreeSet<String> values) {
-        super(name); //invoca il costruttore della classe madre
+    DiscreteAttribute(String name, int index, TreeSet<String> values) {
+        super(name,index); //invoca il costruttore della classe madre
         this.values = values;
     }
 
@@ -108,5 +110,5 @@ class DiscreteAttribute extends Attribute implements Iterable<String>/*List<Attr
         }
         return n_occorrenze;
     }
-
+*/
 }
